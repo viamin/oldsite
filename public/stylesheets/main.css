@@ -1,0 +1,15 @@
+html, body {
+	height: 100%;
+	background: #980024;
+	margin: 0;
+	padding: 0;
+}
+#main_stripe {
+	position: absolute;
+	margin-top: 0;
+	margin-left: 50px;
+	padding: 20px;
+	width: 680px;
+	background: #ffd;
+	color: #573900;
+}
