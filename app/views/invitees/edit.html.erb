@@ -1,0 +1,12 @@
+<h1>Editing invitee</h1>
+
+<%= error_messages_for :invitee %>
+
+<% form_for(@invitee) do |f| %>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @invitee %> |
+<%= link_to 'Back', invitees_path %>

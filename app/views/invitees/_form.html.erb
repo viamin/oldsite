@@ -1,0 +1,18 @@
+<!-- [form:invitee] -->
+
+<p><label for="invitee_name">Name</label>
+<%= f.text_field 'name' %></p>
+
+<p><label for="invitee_party_size">Size of Party</label>
+<%= f.text_field 'party_size' %></p>
+
+<p><label for="invitee_response">Response</label>
+<%= f.select 'response', Invitee::RESPONSES %></p>
+
+<p><label for="invitee_email">Email Address</label>
+<%= f.text_field 'email' %></p>
+
+<p><label for="invitee_address">Mailing Address</label>
+<%= f.text_area 'address', :size => '40x5' %></p>
+
+<!-- [eoform:invitee] -->

@@ -1,0 +1,13 @@
+<h1>Editing room</h1>
+
+<%= error_messages_for :room %>
+
+<% form_for(@room) do |f| %>
+	<%= render :partial => 'form', :object => @room, :locals => {:f => f}%>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @room %> |
+<%= link_to 'Back', rooms_path %>

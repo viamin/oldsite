@@ -9,14 +9,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 2) do
+ActiveRecord::Schema.define(:version => 3) do
 
   create_table "invitees", :force => true do |t|
+    t.string   "name"
+    t.integer  "party_size"
+    t.string   "response"
+    t.integer  "room_id"
+    t.string   "email"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "under_four"
+    t.integer  "under_twelve"
   end
 
   create_table "rooms", :force => true do |t|
+    t.string   "name"
+    t.integer  "singles"
+    t.integer  "twins"
+    t.integer  "queens"
+    t.integer  "capacity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
