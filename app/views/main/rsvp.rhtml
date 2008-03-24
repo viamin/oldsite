@@ -1,27 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Kat and Bart's Wedding - August 8, 2008</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <%= stylesheet_link_tag 'main' %>
+	<%= javascript_include_tag 'application'%>
+</head>
+<body id="main" onload="checkValid();">
+	<div id="main_stripe">
+		<div id="linkbar">
+			<%= render :partial => "toplinks" %>
+		</div>
+		<div id="cfl">
 <h1 style="color: #65a7b4; font-style: italic;">RSVP</h1>
 
 <p>Please let us know if you will be attending our wedding, and if yes, how many people will be in your party.</p>
 
-<% form_for :invitee, @invitee, {:action => 'respond'} do |f| %>
+<% form_for :invitee, @invitee, :url => {:controller => 'main', :action => 'respond'} do |f| %>
+<%= error_messages_for :invitee %>
 	<p><label for="invitee_name">Your name</label>
-		<%= f.text_field 'name'%></p>
+		<div class="normal"><%= f.text_field 'name'%></div></p>
 
 	<p><label for="invitee_email">Your email address</label>
-		<%= f.text_field 'email'%></p>
+		<div class="normal"><%= f.text_field 'email'%></div></p>
 	
 	<p><label for="invitee_response">Will you be coming?</label>
-		<%= f.select 'response', Invitee::RESPONSES %></p>
+		<div class="normal"><%= f.select 'response', Invitee::RESPONSES, {:include_blank => true}, {:onchange => "checkResponse(this.form);"} %></div></p>
 		
-	<p><label for="invitee_party_size">How many people are in your party?</label>
+	<p class="start_hidden" name="bartkat" style="display:none;"><label for="invitee_party_size">How many people in total are in your party?</label>
 		<%= f.select 'party_size', (1..6) %></p>
 		
-	<p><label for="invitee_under_four">How many are under 4 years old?</label>
+	<p class="start_hidden" name="bartkat" style="display:none;"><label for="invitee_under_four">How many are under 4 years old?</label>
 		<%= f.select 'under_four', (1..4) %></p>
 		
-	<p><label for="invitee_under_twelve">How many are under twelve (but older than 4)?</label>
+	<p class="start_hidden" name="bartkat" style="display:none;"><label for="invitee_under_twelve">How many are under twelve (but older than 4)?</label>
 		<%= f.select 'under_twelve', (1..4) %></p>
+		
+	<p class="start_hidden" name="bartkat" style="display:none;"><label for="invitee_housing">Where will you be staying?</label>
+		<%= select_tag 'housing', options_for_select(Invitee::HOUSING) %></p>
+	
+	<p class="start_hidden" name="bartkat" style="display:none;"><%= link_to "Show On Site Housing Availability", :controller => 'rooms', :action => 'list' %></p>
 		
 	<p><label for="invitee_submit">&nbsp;</label>
 		<%= f.submit 'Send RSVP'%>
 		
 <% end %>
+
+		</div>
+	</div>
+</body>
+</html>

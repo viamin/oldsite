@@ -98,9 +98,20 @@ form label {
 	margin-left: 20px;
 	vertical-align: middle;
 }
-form input,select {
+.normal input,select {
 	position: relative;
 	left: 240px;
 	top: -20px;
 	vertical-align: middle;
+}
+.fieldWithErrors {
+	position: relative;
+	left: 240px;
+	top: -35px;
+	vertical-align: middle;
+}
+div.fieldWithErrors input,select {
+	position: relative;
+	left: 0;
+	top: 0;
 }
