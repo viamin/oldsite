@@ -86,32 +86,3 @@ div.progressBar div.background {
 	background: #fff;
 	color: #573900;
 }
-form {
-	position: relative;
-}
-form label {
-	position: relative;
-	left: 24px;
-	width: 180px;
-	display: block;
-	text-align: right;
-	margin-left: 20px;
-	vertical-align: middle;
-}
-.normal input,select {
-	position: relative;
-	left: 240px;
-	top: -20px;
-	vertical-align: middle;
-}
-.fieldWithErrors {
-	position: relative;
-	left: 240px;
-	top: -35px;
-	vertical-align: middle;
-}
-div.fieldWithErrors input,select {
-	position: relative;
-	left: 0;
-	top: 0;
-}

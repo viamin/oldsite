@@ -29,5 +29,5 @@ class Invitee < ActiveRecord::Base
   end
   
   RESPONSES = ['Yes', 'No']
-  HOUSING = ["I Don't Know", "Camp on site in a tent", "Stay in a cabin on site", "Stay in a house on site", "Stay in a hotel near Santa Cruz", "Stay in a hotel near Watsonville", "Other"]
+  HOUSING = ["I Don't Know", "Camp on site in a tent", "Stay in a cabin on site", "Stay in a house on site ($)", "Stay in a hotel near Santa Cruz", "Stay in a hotel near Watsonville", "Other"]
 end
