@@ -1,21 +1,41 @@
 class MainController < ApplicationController
   
   def index
-    render :layout => false
+    
   end
   
   def rsvp
     @invitee = Invitee.new
-    render :layout => false
   end
   
   def respond
     @invitee = Invitee.new(params[:invitee])
     if @invitee.save
+      session[:invitee_id] = @invitee.id
       redirect_to :action => 'thanks'
     else
       render :action => 'rsvp'
     end
+  end
+  
+  def thanks
+    @invitee = Invitee.find(session[:invitee_id])
+    @invitee.response == "Yes" ? @message = "We're looking forward to seeing you on August 8th!" : @message = "We're sorry you can't make it."
+  end
+  
+  def change
+    
+  end
+  
+  def update
+    @invitee = Invitee.find(:all, :conditions => {:email => params[:email]})
+    if @invitee.empty?
+      @invitee = Invitee.find(:all, :conditions => {:name => params[:email]})
+      if @invitee.empty?
+        @message = "An RSVP with that email address was not found."
+      end
+    end
+    render :layout => false
   end
   
 end

@@ -1,16 +1,19 @@
 # == Schema Information
-# Schema version: 3
+# Schema version: 7
 #
 # Table name: rooms
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)     
-#  singles    :integer         
-#  twins      :integer         
-#  queens     :integer         
-#  capacity   :integer         
-#  created_at :datetime        
-#  updated_at :datetime        
+#  id           :integer         not null, primary key
+#  name         :string(255)     
+#  singles      :integer         
+#  fulls        :integer         
+#  queens       :integer         
+#  capacity     :integer         
+#  created_at   :datetime        
+#  updated_at   :datetime        
+#  nightly_rate :string(255)     
+#  description  :string(255)     
+#  booked       :integer         default(0)
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

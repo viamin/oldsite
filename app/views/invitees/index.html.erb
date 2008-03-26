@@ -3,14 +3,18 @@
 <table>
   <tr>
 	  <% for column in Invitee.content_columns %>
+		<% unless column.name =~ /_at/ %>
 	    <th><%= column.human_name %></th>
+		<% end %>
 	  <% end %>
   </tr>
 
 <% for invitee in @invitees %>
   <tr>
 	<% for column in Invitee.content_columns %>
+		<% unless column.name =~ /_at/ %>
     	<td><%=h invitee.send(column.name) %></td>
+		<% end %>
 	<% end %>
     <td><%= link_to 'Show', invitee %></td>
     <td><%= link_to 'Edit', edit_invitee_path(invitee) %></td>

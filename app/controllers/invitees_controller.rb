@@ -1,4 +1,7 @@
 class InviteesController < ApplicationController
+  layout 'main'
+  before_filter :authorize
+  
   # GET /invitees
   # GET /invitees.xml
   def index

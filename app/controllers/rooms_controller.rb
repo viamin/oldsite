@@ -1,8 +1,10 @@
 class RoomsController < ApplicationController
+  layout 'main'
+  
   # GET /rooms
   # GET /rooms.xml
   def index
-    @rooms = Room.find(:all)
+    @rooms = Room.find(:all, :conditions => {:booked => 0})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -82,4 +84,19 @@ class RoomsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def book
+    @room = Room.find(params[:id])
+    unless session[:invitee_id].nil?
+      @invitee = Invitee.find(session[:invitee_id]) 
+      if @invitee.response != "Yes"
+        flash[:notice] = "You can't book a room if you're not coming."
+        redirect_to :controller => 'main', :action => 'rsvp'
+      end
+    else
+      flash[:notice] = "You need to RSVP before you can book a room"
+      redirect_to :controller => 'main', :action => 'rsvp'
+    end
+  end
+  
 end

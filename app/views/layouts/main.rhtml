@@ -3,19 +3,60 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Kat and Bart's Wedding - August 8, 2008</title>
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-  <%= stylesheet_link_tag 'main' %>
-	<%= javascript_include_tag 'application'%>
-</head>
-<body id="main">
-	<div id="main_stripe">
-		<div id="linkbar">
-			<%= render :partial => "toplinks" %>
-		</div>
-		<div id="cfl">
-			<%= @content_for_layout %>
-		</div>
-	</div>
-</body>
-</html>
+        <title>Kat and Bart's Wedding - August 8, 2008</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	  <%= stylesheet_link_tag 'main' %>
+		<%= javascript_include_tag 'application'%>
+</head><body onload="checkValid();" style="background-repeat: initial; background-attachment: initial; -webkit-background-clip: initial; -webkit-background-origin: initial; background-color: initial; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; background-image: url('/images/bg_pattern.jpg'); background-position: 50% 0px; "> 
+	
+<div style="background-repeat: initial; background-attachment: initial; -webkit-background-clip: initial; -webkit-background-origin: initial; background-color: initial; background-image: url('/images/bg_pattern.jpg'); background-position: 50% 0px; " email-body-wrap"="" width="553" cellspacing="0" cellpadding="0" id="email-body" align="center">
+	 
+		&nbsp;
+		<%= image_tag "tbg.jpg", {:style => "display:block", :size => "517x17"} %>
+		&nbsp;
+			
+<table id="main-table" width="517" cellpadding="0" cellspacing="0" align="center">
+	<tbody><tr>
+		<td id="head" colspan="1">
+			<%= image_tag "Photo.png", {:style => "display:block", :size => "517x298"} %>
+		</td>
+	</tr>
+	<tr>
+		<td id="body-center" width="514" style="line-height:2;" background="/images/letter_bg.jpg">
+			
+			<table cellspacing="0" cellpadding="0" width="100%" class="spacing-table-for-ie5-and-hotmail">
+				<tbody><tr>
+					<td colspan="3" height="23" class="top-spacing">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="31" class="left-gutter-spacing" style="font-size:1px">&nbsp;</td>
+					<td class="content-holder" valign="top" align="center">
+						<div id="cfl">
+							<p style="color: red"><%= flash[:notice] %></p>
+							<%= @content_for_layout %>
+						</div>
+					</td>
+					<td width="31" class="right-gutter-spacing" style="font-size:1px">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="3" height="23" class="bottom-spacing">&nbsp;</td>
+				</tr>
+			</tbody></table>
+			
+		</td>
+	</tr>
+	<tr>
+		<td id="foot" class="foot" colspan="1">
+			<%= image_tag "bottom.jpg", {:style => "display:block", :size => "517x126"} %>
+		</td>
+	</tr>
+</tbody></table>
+
+		<%= image_tag "bbg.jpg", {:style => "display:block", :size => "517x18"} %>
+	
+
+
+</div>
+
+
+</body></html>

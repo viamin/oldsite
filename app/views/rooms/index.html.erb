@@ -1,20 +1,23 @@
-<h1>Listing rooms</h1>
-
+<h1>Available Rooms</h1>
+<p>Cabins with the same number share a wall. Campsites are $20 per tent. There is also an $8 per person site fee. </p>
 <table>
   <tr>
 	<% for column in Room.content_columns %>
+		<% unless column.name =~ /_at/ || column.name == "queens" || column.name == "booked" %>
 		<th><%= column.human_name %></th>
+		<% end %>
 	<% end %>
   </tr>
 
 <% for room in @rooms %>
   <tr>
 	<% for column in Room.content_columns %>
+		<% if !(column.name =~ /_at/) && column.name != "queens" && column.name != "name"  && column.name != "booked" %>
     	<td><%=h room.send(column.name) %></td>
+		<% elsif column.name == "name" %>
+		<td><%=link_to room.send(column.name), room_path(room) %></td>
+		<% end %>
 	<% end %>
-    <td><%= link_to 'Show', room %></td>
-    <td><%= link_to 'Edit', edit_room_path(room) %></td>
-    <td><%= link_to 'Destroy', room, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

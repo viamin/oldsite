@@ -27,3 +27,15 @@ function checkValid() {
 		}
 	}
 }
+
+function updateCost() {
+	baseCost = document.getElementById('rate');
+	costDollar = parseInt(baseCost.innerHTML.substring(1));
+	nights = document.getElementById('room_nights');
+	roomNights = parseInt(nights.value);
+	costP = document.getElementById('total_cost');
+	peeps = document.getElementById('room_occupants');
+	numPeeps = parseInt(peeps.value);
+	totalCost = (costDollar * roomNights) + (8 * numPeeps);
+	costP.innerHTML = "$" + totalCost;
+}

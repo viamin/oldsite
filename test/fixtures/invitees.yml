@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 3
+# Schema version: 7
 #
 # Table name: invitees
 #
@@ -14,6 +14,7 @@
 #  updated_at   :datetime        
 #  under_four   :integer         
 #  under_twelve :integer         
+#  housing      :string(255)     
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

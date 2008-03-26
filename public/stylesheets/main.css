@@ -86,3 +86,9 @@ div.progressBar div.background {
 	background: #fff;
 	color: #573900;
 }
+#cfl {
+	position: relative;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}

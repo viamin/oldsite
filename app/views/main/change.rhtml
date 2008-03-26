@@ -1,0 +1,10 @@
+<h1 style="color: #8c0f0f; font-style: italic;">Change Response</h1>
+
+<p>If you've already sent in your RSVP card or replied on this website, you can change your answer on this page.</p>
+
+<% form_remote_tag :update => 'rsvp_div', :url => {:action => 'update'} do |f| %>
+	<%= text_field_tag 'email' %>
+	<%= submit_tag 'Find RSVP' %>
+<% end %>
+
+<div id="rsvp_div"></div>

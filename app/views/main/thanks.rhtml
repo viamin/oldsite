@@ -1,0 +1,9 @@
+<h1 style="color: #8c0f0f; font-style: italic;">Thanks!</h1>
+
+<p><%= @message %></p>
+
+<p>Thanks for responding to our invitation. Have a great day!</p>
+
+<% if ((@invitee.response == "Yes") && (@invitee.housing =~ /(Stay|Camp)/)) %>
+<p><%= link_to "Show On Site Housing Availability", {:controller => 'rooms'} %></p>
+<% end %>
