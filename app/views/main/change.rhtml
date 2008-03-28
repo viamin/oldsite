@@ -2,9 +2,11 @@
 
 <p>If you've already sent in your RSVP card or replied on this website, you can change your answer on this page.</p>
 
-<% form_remote_tag :update => 'rsvp_div', :url => {:action => 'update'} do |f| %>
+<p>Enter your name as it appears on your invitation or your email address from when you RSVP'd on this website.</p>
+
+<%= form_remote_tag :update => 'rsvp_div', :url => {:action => 'update'} %>
 	<%= text_field_tag 'email' %>
 	<%= submit_tag 'Find RSVP' %>
-<% end %>
+</form>
 
-<div id="rsvp_div"></div>
+<div id="rsvp_div">&nbsp;</div>

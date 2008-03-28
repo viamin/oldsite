@@ -1,5 +1,7 @@
 <%= @message unless @message.nil? %>
 <% form_for 'invitee', @invitee, :url => {:action => 'edit', :id => @invitee} do |f| %>
-	
+	<p>Name: <%= @invitee.name %></p>
+	<p>Email: <%= @invitee.email %></p>
+	<p>Response: <%= f.select 'response', Invitee::RESPONSES %></p>
 	<%= f.submit 'Update' %>
 <% end unless @invitee.nil? %>

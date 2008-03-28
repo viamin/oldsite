@@ -28,14 +28,21 @@ class MainController < ApplicationController
   end
   
   def update
-    @invitee = Invitee.find(:all, :conditions => {:email => params[:email]})
-    if @invitee.empty?
-      @invitee = Invitee.find(:all, :conditions => {:name => params[:email]})
-      if @invitee.empty?
+    @invitees = Invitee.find(:all, :conditions => {:email => params[:email]})
+    if @invitees.empty?
+      @invitees = Invitee.find(:all, :conditions => {:name => params[:email]})
+      if @invitees.empty?
         @message = "An RSVP with that email address was not found."
       end
     end
+    @invitee = @invitees.first
     render :layout => false
+  end
+  
+  def edit
+    @invitee = Invitee.find(params[:id])
+    @invitee.update_attributes(params[:invitee])
+    redirect_to :action => 'thanks'
   end
   
 end
