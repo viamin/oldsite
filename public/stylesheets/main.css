@@ -77,6 +77,10 @@ div.progressBar div.background {
   width: 0%;
 }
 /* ************************** */
+h1 {
+	color: #8c0f0f;
+	font-style: italic;
+}
 #main_stripe {
 	position: absolute;
 	margin-top: 0;
