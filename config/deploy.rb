@@ -53,7 +53,6 @@ end
 desc "Fixes symlinks and environment for production mode"
 deploy.task :after_deploy, :roles => :web do
   run "rm -rf /home/#{user}/public_html/#{application};ln -s #{current_path}/public /home/#{user}/public_html/#{application}"
-  run "ln -s ~/#{application}/current/public ~/public_html/#{application}"
   fix_perms
   run "/bin/mv #{deploy_to}/current/config/environment.rb.server #{deploy_to}/current/config/environment.rb"
   restart
