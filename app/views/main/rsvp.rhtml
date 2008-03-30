@@ -8,7 +8,7 @@
 <%= f.text_field 'name'%></p>
 
 <p><label for="invitee_email">Your email address</label><br />
-<%= f.text_field 'email'%></p>
+<%= f.text_field 'email', :value => 'None', :onfocus => "clear_form();", :onblur => "repop_form();", :style => "color: #999;" %></p>
 
 <p><label for="invitee_response">Will you be coming?</label><br />
 <%= f.select 'response', Invitee::RESPONSES, {:include_blank => true}, {:onchange => "checkResponse(this.form);"} %></p>
@@ -31,5 +31,21 @@
 <%= f.submit 'Send RSVP'%>
 
 <% end %>
+<script type="text/javascript">
+	function clear_form() {
+		var box = document.getElementById('invitee_email');
+		if (box.value == "None") {
+			box.value = "";
+			box.style.color = "#000";
+		}
+	}
+	function repop_form() {
+		var box = document.getElementById('invitee_email');
+		if (box.value == "") {
+			box.style.color = "#999";
+			box.value = "None";
+		}
+	}
+</script>
 
 <p>If you've already RSVP'd but need to change your response for some reason, <%= link_to "click here", :action => 'change' %>

@@ -5,11 +5,28 @@
 
 <% form_tag url_for(:controller => 'rooms', :action => 'confirm', :id => @room), {:id => 'booking_form'} do |f| %>
 	<p><label for="room_nights">How many nights would you like this room for?</label>
-	<%= select_tag 'room[nights]', options_for_select(1..2), {:id => 'room_nights', :onchange => 'updateCost();'}%>
+	<%= select_tag 'room[nights]', options_for_select([["Friday Night Only", 1], ["Thursday and Friday night", 2]]), {:id => 'room_nights', :onchange => 'updateCost();'}%>
 	<p><label for="room_occupants">How many people will be staying in this room?</label>
 	<%= select_tag 'room[occupants]', options_for_select(1..@room.capacity), {:id => 'room_occupants', :onchange => 'updateCost();'} %></p>
 <% end %>
-<p>Total cost for the room and occupant site fee: <span id="total_cost" style="font-weight:bold;"><%= @room.nightly_rate %></span></p>
-<%= button_to "Pay via Paypal", "http://www.paypal.com", :popup => true %>
+<p>Total cost for the room and occupant site fee ($8 per person): <span id="total_cost" style="font-weight:bold;">$<%= @room.nightly_cost %></span></p>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="bart@sonic.net">
+<input type="hidden" name="item_name" value="<%= @room.name %> - Kat and Bart&#39;s Wedding">
+<input type="hidden" id="paypal_amount" name="amount" value="<%= @room.nightly_cost %>.00">
+<input type="hidden" name="shipping" value="0.00">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="return" value="http://www.bartandkat.com/rooms/paid/<%= @room.id %>">
+<input type="hidden" name="cancel_return" value="http://www.bartandkat.com/rooms">
+<input type="hidden" name="cn" value="Comments">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="tax" value="0.00">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="bn" value="PP-BuyNowBF">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
 
 <%= link_to 'Back', rooms_path %>

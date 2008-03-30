@@ -36,6 +36,7 @@ class MainController < ApplicationController
       end
     end
     @invitee = @invitees.first
+    session[:invitee_id] = @invitee.id
     render :layout => false
   end
   

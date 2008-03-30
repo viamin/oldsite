@@ -31,4 +31,12 @@ class Room < ActiveRecord::Base
     beds
   end
   
+  def nightly_cost
+    rate = self.nightly_rate
+    rate =~ /^\$(\d+)/
+    cost = Regexp.last_match[1].to_i
+    cost = cost + 8
+    cost
+  end
+  
 end

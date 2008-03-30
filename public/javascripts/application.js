@@ -34,8 +34,10 @@ function updateCost() {
 	nights = document.getElementById('room_nights');
 	roomNights = parseInt(nights.value);
 	costP = document.getElementById('total_cost');
+	ppCost = document.getElementById('paypal_amount');
 	peeps = document.getElementById('room_occupants');
 	numPeeps = parseInt(peeps.value);
 	totalCost = (costDollar * roomNights) + (8 * numPeeps);
 	costP.innerHTML = "$" + totalCost;
+	ppCost.value = totalCost;
 }

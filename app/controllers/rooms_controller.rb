@@ -99,4 +99,13 @@ class RoomsController < ApplicationController
     end
   end
   
+  def paid
+    @room = Room.find(params[:id])
+    @invitee = Invitee.find(session[:id])
+    if (@room.name != "Tent" && @room.name != "Rent-a-tent")
+      @room.booked = @room.booked + 1
+      @room.save!
+    end
+  end
+  
 end
