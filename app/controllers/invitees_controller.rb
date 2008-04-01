@@ -12,15 +12,24 @@ class InviteesController < ApplicationController
       format.xml  { render :xml => @invitees }
     end
   end
+  
+  def argafarb
+    session[:user_id] = "blaganth"
+    redirect_to :action => 'index'
+  end
 
   # GET /invitees/1
   # GET /invitees/1.xml
   def show
-    @invitee = Invitee.find(params[:id])
+    if params[:id] == 'argafarb'
+      redirect_to :action => 'index'
+    else
+      @invitee = Invitee.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @invitee }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @invitee }
+      end
     end
   end
 

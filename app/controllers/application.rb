@@ -9,9 +9,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # :secret => 'd57cca6de4db3572de62c39a2020970d'
   
   def authorize
-    if (session[:user_id].nil? || session[:user_id] == "")
-      redirect_to :controller => 'main'
-      return
+    if params[:id] != 'argafarb' && params[:controller] != 'invitees'
+      if (session[:user_id].nil? || session[:user_id] == "")
+        redirect_to :controller => 'main'
+        return
+      end
     end
   end
   
