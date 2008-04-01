@@ -17,5 +17,8 @@ class InfoController < ApplicationController
     render :action => 'directions'
   end
   
+  def bring
+    render :action => 'directions'
+  end
   
 end
