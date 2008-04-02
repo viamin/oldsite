@@ -10,7 +10,6 @@ class InfoController < ApplicationController
   end
   
   def lodging
-    render :action => 'directions'
   end
   
   def registry
