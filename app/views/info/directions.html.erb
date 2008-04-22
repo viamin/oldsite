@@ -1,5 +1,24 @@
-<h1>Check back here soon!</h1>
+<h1>Getting There</h1>
 
-<p>This information will be updated soon, so please check back here.</p>
+<p>This page will have information on how to get to Pema Osel Ling. We have several options set up. You can <%= link_to "drive", "#drive" %>, we have information for <%= link_to "airport shuttles", "#ap_shuttle" %>, and we will be running <%= link_to "our own shuttle", "#shuttle" %> from Santa Cruz and  Watsonville to the site.</p>
+
+<p><a name="drive"><h3>Driving Directions</h3></a>
+<h4>From San Diego</h4>
+<%= link_to "Google Maps Driving Directions", "http://maps.google.com/maps?f=d&hl=en&geocode=10275115477709669684,37.050398,-121.808662&saddr=San+diego,+ca&daddr=2013+Eureka+Canyon+Rd+Watsonville,+CA+95076&mra=pi&mrcr=0&sll=37.050398,-121.808662&sspn=0.007775,0.01502&ie=UTF8&z=6&pw=2", :popup => true %>
+<h4>From San Jose Airport</h4>
+<%= link_to "Google Maps Driving Directions", "http://maps.google.com/maps?f=d&hl=en&geocode=10275115477709669684,37.050398,-121.808662&saddr=San+Jose+Airport+&daddr=2013+Eureka+Canyon+Rd+Watsonville,+CA+95076&sll=37.776035,-121.814575&sspn=1.971191,3.845215&ie=UTF8&z=10&pw=2", :popup => true %>
+<h4>From San Francisco Airport</h4>
+<%= link_to "Google Maps Driving Directions", "http://maps.google.com/maps?f=d&hl=en&geocode=10275115477709669684,37.050398,-121.808662&saddr=sfo&daddr=2013+Eureka+Canyon+Rd+Watsonville,+CA+95076&sll=36.235412,-120.421143&sspn=2.011517,3.845215&ie=UTF8&z=9&pw=2", :popup => true %>
+<h4>From Sacramento</h4>
+<%= link_to "Google Maps Driving Directions", "http://maps.google.com/maps?f=d&hl=en&geocode=10275115477709669684,37.050398,-121.808662&saddr=Sacramento,+CA&daddr=2013+Eureka+Canyon+Rd+Watsonville,+CA+95076&sll=37.170395,-121.91292&sspn=0.496811,0.961304&ie=UTF8&z=8&pw=2", :popup => true %>
+<h4>From Bakersfield</h4>
+<%= link_to "Google Maps Driving Directions", "http://maps.google.com/maps?f=d&hl=en&geocode=10275115477709669684,37.050398,-121.808662&saddr=Bakersfield&daddr=2013+Eureka+Canyon+Rd+Watsonville,+CA+95076&sll=37.776035,-121.814575&sspn=1.971191,3.845215&ie=UTF8&ll=36.235412,-120.421143&spn=2.011517,3.845215&z=8&pw=2", :popup => true %></p>
+<p><a name="ap_shuttle"><h3>Airport Shuttle</h3></a>
+	<h4>Early Bird Airport Shuttle</h4>
+	Runs from San Jose Airport.<br />
+	(408) 555-1234</p>
+	
+<p><a name="shuttle"><h3>Hotel Shuttle Service</h3></a>
+	We'll be running a shuttle ourselves from Santa Cruz and Watsonville to Pema Osel Ling before and after the wedding. Due to the length of time it takes to get to and from Santa Cruz and Watsonville, you will need to reserve a spot on the shuttles in advance. Come back to this page later to make reservations.</p>
 
 <%= render :partial => 'links' %>

@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :seats
+
   map.resources :rooms
 
   map.resources :invitees

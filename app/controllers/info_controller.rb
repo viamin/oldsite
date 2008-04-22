@@ -1,5 +1,6 @@
 class InfoController < ApplicationController
   layout 'main'
+  caches_page :index, :directions, :lodging, :registry, :bring
   
   def index
     
@@ -13,11 +14,9 @@ class InfoController < ApplicationController
   end
   
   def registry
-    render :action => 'directions'
   end
   
   def bring
-    render :action => 'directions'
   end
   
 end

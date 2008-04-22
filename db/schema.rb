@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 7) do
+ActiveRecord::Schema.define(:version => 8) do
 
   create_table "invitees", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(:version => 7) do
     t.string   "nightly_rate"
     t.string   "description"
     t.integer  "booked",       :default => 0
+  end
+
+  create_table "seats", :force => true do |t|
+    t.datetime "time"
+    t.string   "destination"
+    t.integer  "number"
+    t.integer  "invitee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
