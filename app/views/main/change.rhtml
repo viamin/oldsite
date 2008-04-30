@@ -1,8 +1,8 @@
 <h1 style="color: #8c0f0f; font-style: italic;">Change Response</h1>
 
-<p>If you've already sent in your RSVP card or replied on this website, you can change your answer on this page.</p>
+<p>If we've already received your RSVP card or you have RSVP'd on this website, you can change your response on this page.</p>
 
-<p>Enter your name as it appears on your invitation or your email address from when you RSVP'd on this website.</p>
+<p>Enter your name exactly as it appears on your invitation address label (you don't need to enter your address) or your email address if you RSVP'd on this website.</p>
 
 <%= form_remote_tag :update => 'rsvp_div', :url => {:action => 'update'} %>
 	<%= text_field_tag 'email' %>

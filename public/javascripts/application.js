@@ -14,6 +14,19 @@ function checkResponse(form) {
 	}
 }
 
+function checkHousing(form) {
+	selection = form.elements[7].value;
+	link = document.getElementById('shuttle');
+	link2 = document.getElementById('housing');
+	if ((selection == "Hotel near Santa Cruz") || (selection == "Hotel near Watsonville")) {
+		link.style.display = '';
+		link2.style.display = 'none';
+	} else {
+		link.style.display = 'none';
+		link2.style.display = '';
+	}
+}
+
 function checkValid() {
 	errorDiv = document.getElementById('errorExplanation');
 	if (errorDiv != null) {

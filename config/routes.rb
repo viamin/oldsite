@@ -1,8 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.connect 'rooms/admin', :controller => 'rooms', :action => 'admin'
   map.resources :seats
-
   map.resources :rooms
-
   map.resources :invitees
 
   # The priority is based upon order of creation: first created -> highest priority.

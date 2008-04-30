@@ -57,3 +57,9 @@ Rails::Initializer.run do |config|
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc
 end
+
+def timing(str)
+  time = Time.now
+  string = "[#{time.strftime "%H:%M:%S"}-#{ (time.usec / 1000).to_s.rjust(3,"0") }] #{str}"
+  RAILS_DEFAULT_LOGGER.info string
+end

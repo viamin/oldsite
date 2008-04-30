@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 7
+# Schema version: 10
 #
 # Table name: rooms
 #
@@ -14,6 +14,7 @@
 #  nightly_rate :string(255)     
 #  description  :string(255)     
 #  booked       :integer         default(0)
+#  photo        :string(255)     
 #
 
 class Room < ActiveRecord::Base

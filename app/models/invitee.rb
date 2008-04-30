@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 7
+# Schema version: 10
 #
 # Table name: invitees
 #
@@ -15,6 +15,7 @@
 #  under_four   :integer         
 #  under_twelve :integer         
 #  housing      :string(255)     
+#  notes        :text            
 #
 
 class Invitee < ActiveRecord::Base

@@ -1,0 +1,25 @@
+<h1>All Rooms</h1>
+<p>Cabins with the same number share a wall. Campsites are $20 per tent. There is also an $8 per person site fee. </p>
+<table>
+  <tr>
+	<% for column in Room.content_columns %>
+		<% unless column.name =~ /_at/ || column.name == "queens" %>
+		<th><%= column.human_name %></th>
+		<% end %>
+	<% end %>
+  </tr>
+
+<% for room in @rooms %>
+  <tr>
+	<% for column in Room.content_columns %>
+		<% if !(column.name =~ /_at/) && column.name != "queens" && column.name != "name" %>
+    	<td><%=h room.send(column.name) %></td>
+		<% elsif column.name == "name" %>
+		<td><%=link_to room.send(column.name), room_path(room) %></td>
+		<% end %>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= render :partial => 'info/links' %>

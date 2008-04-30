@@ -1,9 +1,9 @@
 <h1>Available Rooms</h1>
-<p>Cabins with the same number share a wall. Campsites are $20 per tent. There is also an $8 per person site fee. </p>
+<p>Cabins with a letter share a wall with the cabin with matching number. Campsites are $20 per tent. There is also an $8 per person site fee. The $8 fee includes a continental breakfast on Saturday morning. </p>
 <table>
   <tr>
 	<% for column in Room.content_columns %>
-		<% unless column.name =~ /_at/ || column.name == "queens" || column.name == "booked" %>
+		<% unless column.name =~ /_at/ || column.name == "queens" || column.name == "booked" || column.name == "photo" %>
 		<th><%= column.human_name %></th>
 		<% end %>
 	<% end %>
@@ -12,7 +12,7 @@
 <% for room in @rooms %>
   <tr>
 	<% for column in Room.content_columns %>
-		<% if !(column.name =~ /_at/) && column.name != "queens" && column.name != "name"  && column.name != "booked" %>
+		<% if !(column.name =~ /_at/) && column.name != "queens" && column.name != "name"  && column.name != "booked" && column.name != "photo" %>
     	<td><%=h room.send(column.name) %></td>
 		<% elsif column.name == "name" %>
 		<td><%=link_to room.send(column.name), room_path(room) %></td>

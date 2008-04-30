@@ -1,5 +1,6 @@
 class SeatsController < ApplicationController
   layout 'main'
+  before_filter :authorize, :except => ['index', 'show']
   
   # GET /seats
   # GET /seats.xml

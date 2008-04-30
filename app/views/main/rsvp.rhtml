@@ -23,9 +23,14 @@
 <%= f.select 'under_twelve', (0..4) %></p>
 
 <p name="bartkat" style="display:none;"><label for="invitee_housing">Where will you be staying?</label><br />
-<%= f.select 'housing', Invitee::HOUSING %></p>
+<%= f.select 'housing', Invitee::HOUSING, {}, {:onchange => "checkHousing(this.form);"} %></p>
 
-<p name="bartkat" style="display:none;"><%= link_to "Show On-site Housing Availability", {:controller => 'rooms'}, {:popup => true} %></p>
+<p id="shuttle" style="display:none;"><%= link_to "Show Hotel Shuttle Info", {:controller => 'seats'}, {:popup => true} %></p>
+
+<p name="bartkat" id="housing" style="display:none;"><%= link_to "Show On-site Housing Availability", {:controller => 'rooms'}, {:popup => true} %></p>
+
+<p><label for="invitee_notes">Notes/Message to Bart and Kat</label>
+<%= f.text_area 'notes', :size => '40x5' %></p>
 
 <p><label for="invitee_submit">&nbsp;</label>
 <%= f.submit 'Send RSVP'%>

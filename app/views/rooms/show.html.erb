@@ -1,4 +1,5 @@
 <h3><%= @room.name %></h3>
+<p><%= image_tag(@room.photo) unless @room.photo.nil? %></p>
 <p>Room Capacity: <%= @room.capacity %></p>
 <p>Beds: <%= @room.beds_string %></p>
 <p>Nightly Rate: <%= @room.nightly_rate %></p>

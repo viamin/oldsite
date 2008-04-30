@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   layout 'main'
+  before_filter :authorize, :except => ['index', 'show', 'book', 'paid']
   
   # GET /rooms
   # GET /rooms.xml
@@ -15,11 +16,16 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.xml
   def show
-    @room = Room.find(params[:id])
+    if params[:id] == "admin"
+      admin
+      render :action => 'admin'
+    else
+      @room = Room.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @room }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @room }
+      end
     end
   end
 
@@ -91,7 +97,7 @@ class RoomsController < ApplicationController
       @invitee = Invitee.find(session[:invitee_id]) 
       if @invitee.response != "Yes"
         flash[:notice] = "You can't book a room if you're not coming."
-        redirect_to :controller => 'main', :action => 'rsvp'
+        redirect_to :controller => 'main', :action => 'change'
       end
     else
       flash[:notice] = "You need to RSVP before you can book a room"
@@ -105,6 +111,15 @@ class RoomsController < ApplicationController
     if (@room.name != "Tent" && @room.name != "Rent-a-tent")
       @room.booked = @room.booked + 1
       @room.save!
+    end
+  end
+  
+  def admin
+    @rooms = Room.find(:all)
+
+    respond_to do |format|
+      format.html # admin.html.erb
+      format.xml  { render :xml => @rooms }
     end
   end
   
