@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-  caches_page :index, :change
+  caches_page :index
   
   def index
     
