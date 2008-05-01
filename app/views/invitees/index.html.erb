@@ -16,11 +16,14 @@
     	<td><%=h invitee.send(column.name) %></td>
 		<% end %>
 	<% end %>
-    <td><%= link_to 'Show', invitee %></td>
     <td><%= link_to 'Edit', edit_invitee_path(invitee) %></td>
     <td><%= link_to 'Destroy', invitee, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
+  <tr>
+	<th>Total</th>
+	<td colspan="9"><%= h @total %></td>
+  </tr>
 </table>
 
 <br />
