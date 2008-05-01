@@ -4,6 +4,7 @@
 
 <% form_for(@invitee) do |f| %>
   <p>
+	<%= render :partial => 'form' %>
     <%= f.submit "Update" %>
   </p>
 <% end %>

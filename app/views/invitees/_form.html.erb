@@ -6,6 +6,12 @@
 <p><label for="invitee_party_size">Size of Party</label>
 <%= f.text_field 'party_size' %></p>
 
+<p><label for="invitee_under_four">Under 4 years old</label><br />
+<%= f.select 'under_four', (0..4) %></p>
+
+<p><label for="invitee_under_twelve">Under twelve</label><br />
+<%= f.select 'under_twelve', (0..4) %></p>
+
 <p><label for="invitee_response">Response</label>
 <%= f.select 'response', Invitee::RESPONSES %></p>
 
