@@ -6,7 +6,7 @@ class InviteesController < ApplicationController
   # GET /invitees.xml
   def index
     @invitees = Invitee.find(:all)
-    totals = @invitees.collect {|i| i.party_size}
+    totals = @invitees.collect {|i| i.response == "Yes" ? i.party_size : 0 }
     @total = 0
     totals.each {|t| @total = @total + t}
     respond_to do |format|
