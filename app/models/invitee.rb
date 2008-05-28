@@ -28,7 +28,7 @@ class Invitee < ActiveRecord::Base
       errors.add(:party_size, "must be bigger than the number of children + one adult")
     end
   end
-  validates_uniqueness_of :email, :message => "has already been used"
+  validates_uniqueness_of :email, :message => "has already been used", :unless => Proc.new { |invitee| invitee.email.downcase == "none"}
   
   RESPONSES = ['Yes', 'No']
   HOUSING = ["I Don't Know", "Camp on site in a tent", "Stay in a cabin on site", "Stay in a house on site", "Hotel near Santa Cruz", "Hotel near Watsonville", "Other"]
