@@ -100,7 +100,7 @@ class RoomsController < ApplicationController
         redirect_to :controller => 'main', :action => 'change'
       end
     else
-      flash[:notice] = "You need to RSVP before you can book a room"
+      flash[:notice] = "You need to RSVP before you can book a room. If you've already RSVP'd, scroll down to the bottom and click the link to update your RSVP, which will log you back into the system so you can book a room."
       redirect_to :controller => 'main', :action => 'rsvp'
     end
   end
