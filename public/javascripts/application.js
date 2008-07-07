@@ -62,9 +62,11 @@ function updateYurtCost() {
 	roomNights = parseInt(nights.value);
 	costP = document.getElementById('total_cost');
 	ppCost = document.getElementById('paypal_amount');
+	ppTitle = document.getElementById('paypal_title');
 	peeps = document.getElementById('room_occupants');
 	numPeeps = parseInt(peeps.value);
 	totalCost = ((costDollar * roomNights) + 8) * numPeeps;
 	costP.innerHTML = "$" + totalCost;
 	ppCost.value = totalCost;
+	ppTitle.value = "Yurt Bed (" + numPeeps + ") - Kat and Bart&#39;s Wedding"
 }
