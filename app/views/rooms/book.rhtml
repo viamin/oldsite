@@ -6,8 +6,15 @@
 <% form_tag url_for(:controller => 'rooms', :action => 'confirm', :id => @room), {:id => 'booking_form'} do |f| %>
 	<p><label for="room_nights">How many nights would you like this room for?</label>
 	<%= select_tag 'room[nights]', options_for_select([["Friday Night Only", 1], ["Thursday and Friday night", 2]]), {:id => 'room_nights', :onchange => 'updateCost();'}%>
+	
+	<% if @room.name == "Yurt Bed" %>
+	<p><label for="room_occupants">How many beds would you like to reserve?</label>
+		<%= select_tag 'room[occupants]', options_for_select(1..@room.capacity), {:id => 'room_occupants', :onchange => 'updateYurtCost();'} %>
+	<% else %>
 	<p><label for="room_occupants">How many people will be staying in this room?</label>
-	<%= select_tag 'room[occupants]', options_for_select(1..@room.capacity), {:id => 'room_occupants', :onchange => 'updateCost();'} %></p>
+		<%= select_tag 'room[occupants]', options_for_select(1..@room.capacity), {:id => 'room_occupants', :onchange => 'updateCost();'} %>
+	<% end %>	
+	</p>
 <% end %>
 <p>Total cost for the room and occupant site fee ($8 per person): <span id="total_cost" style="font-weight:bold;">$<%= @room.nightly_cost %></span></p>
 

@@ -107,6 +107,10 @@ class RoomsController < ApplicationController
   
   def paid
     @room = Room.find(params[:id])
+    if (@room.name == "Yurt Bed")
+      @room.capacity = @room.capacity - 2
+      @room.save!
+    end
     if (@room.name != "Tent" && @room.name != "Rent-a-tent" && @room.name != "Yurt Bed")
       @room.booked = @room.booked + 1
       @room.save!

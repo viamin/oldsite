@@ -54,3 +54,17 @@ function updateCost() {
 	costP.innerHTML = "$" + totalCost;
 	ppCost.value = totalCost;
 }
+
+function updateYurtCost() {
+	baseCost = document.getElementById('rate');
+	costDollar = parseInt(baseCost.innerHTML.substring(1));
+	nights = document.getElementById('room_nights');
+	roomNights = parseInt(nights.value);
+	costP = document.getElementById('total_cost');
+	ppCost = document.getElementById('paypal_amount');
+	peeps = document.getElementById('room_occupants');
+	numPeeps = parseInt(peeps.value);
+	totalCost = ((costDollar * roomNights) + 8) * numPeeps;
+	costP.innerHTML = "$" + totalCost;
+	ppCost.value = totalCost;
+}
