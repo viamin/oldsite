@@ -68,5 +68,5 @@ function updateYurtCost() {
 	totalCost = ((costDollar * roomNights) + 8) * numPeeps;
 	costP.innerHTML = "$" + totalCost;
 	ppCost.value = totalCost;
-	ppTitle.value = "Yurt Bed (" + numPeeps + ") - Kat and Bart&#39;s Wedding"
+	ppTitle.value = "Yurt Bed (" + numPeeps + ") - Kat and Bart's Wedding"
 }
