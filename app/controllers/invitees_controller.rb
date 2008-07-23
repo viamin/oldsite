@@ -9,6 +9,12 @@ class InviteesController < ApplicationController
     totals = @invitees.collect {|i| i.response == "Yes" ? i.party_size : 0 }
     @total = 0
     totals.each {|t| @total = @total + t}
+    total_under_4 = @invitees.collect {|i| i.response == "Yes" ? i.under_four : 0 }
+    @total_under_4 = 0
+    total_under_4.each {|t| @total_under_4 = @total_under_4 + t}
+    total_under_12 = @invitees.collect {|i| i.response == "Yes" ? i.under_twelve : 0 }
+    @total_under_12 = 0
+    total_under_12.each {|t| @total_under_12 = @total_under_12 + t}
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @invitees }
