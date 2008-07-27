@@ -6,7 +6,12 @@ class MainController < ApplicationController
   end
   
   def rsvp
-    @invitee = Invitee.new
+#    @invitee = Invitee.new
+    redirect_to :action => 'closed'
+  end
+  
+  def closed
+    
   end
   
   def respond
